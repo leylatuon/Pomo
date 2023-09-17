@@ -1,0 +1,30 @@
+1. npm install express jsonwebtoken bcryptjs
+
+2. file set up:
+
+project-directory/
+|-- server.js
+|-- package.json
+|-- public/
+    |-- index.html
+    |-- script.js
+    |-- styles.css
+
+
+server.js: server-side application
+    > Express server setup/routes
+    > JWT creation
+    > validation logic
+
+package.json:
+    > dependencies (npm init) in your project directory and following the prompts
+
+public/index.html: main HTML file for client-side application
+    > (structure of login page)
+
+public/script.js: JavaScript code for your client-side application. 
+    > form submission
+    > login request to the server
+    > storing received JWT
+
+public/styles.css: CSS styles for login page
