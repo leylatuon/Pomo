@@ -1,0 +1,17 @@
+{
+  "name": "pomo",
+  "version": "1.0.0",
+  "description": "Project Pitch Slidedeck: https://docs.google.com/presentation/d/1NQCGvrGVqeObl3ZiJrulwMm4XHdR9-gMWOFTFyNgtZM/edit#slide=id.g27c1dc88024_0_22",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2"
+  }
+}
