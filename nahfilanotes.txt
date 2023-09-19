@@ -1,4 +1,5 @@
-1. npm install express jsonwebtoken bcryptjs
+1. Install Necessary Packages:
+    > npm install express jsonwebtoken bcryptjs
 
 2. file set up:
 
@@ -28,3 +29,14 @@ public/script.js: JavaScript code for your client-side application.
     > storing received JWT
 
 public/styles.css: CSS styles for login page
+
+3. Create a User Model
+
+4. Hash Password
+
+5. Create a JWT Token
+
+6. Verify JWT Token
+
+
+
