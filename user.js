@@ -1,8 +1,6 @@
-//import required modules
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 
-//define schema for user model
 const UserSchema = new mongoose.Schema({
   username: {
     type: String,
@@ -15,7 +13,6 @@ const UserSchema = new mongoose.Schema({
   },
 });
 
-//pre-save hook
 UserSchema.pre('save', async function (next) {
   const user = this;
   if (user.isModified('password')) {
@@ -24,7 +21,6 @@ UserSchema.pre('save', async function (next) {
   next();
 });
 
-//create user model using mongoose.model export
 const User = mongoose.model('User', UserSchema);
 module.exports = User;
 

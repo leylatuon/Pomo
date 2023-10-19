@@ -19,10 +19,9 @@ form.addEventListener('submit', async (e) => {
 
         if (response.status === 200) {
             alert('Logged in successfully!');
-            // You can save the token in localStorage for example
+
             localStorage.setItem('jwt-token', data.token);
-            // Redirect to the dashboard or main page
-            // window.location.href = '/dashboard.html';
+
         } else {
             alert(data.message);
         }

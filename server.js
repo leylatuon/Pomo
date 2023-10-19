@@ -6,8 +6,10 @@ const path = require('path');
 
 const app = express();
 
-// Database connection
-mongoose.connect('mongodb://localhost:27017/yourdbname', {
+const username = encodeURIComponent('nahfila@mail.com');
+const password = encodeURIComponent('helloworld123');
+
+mongoose.connect(`mongodb://${username}:${password}@localhost:27017/yourdbname?authSource=admin`, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 }).then(() => {
@@ -20,10 +22,10 @@ app.use(cors());
 app.use(express.json());
 app.use('/auth', authRouter);
 
-// Serve static files from the root directory
+
 app.use(express.static(__dirname));
 
-// Catch-all route to serve the login.html
+
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'login.html'));
 });

@@ -1,19 +1,17 @@
 const mongoose = require('mongoose');
-const User = require('./user');  // adjust the path to your User model
+const User = require('./user'); 
 
-// Connect to MongoDB
-mongoose.connect('mongodb://localhost:27017/yourdbname', {
+mongoose.connect('mongodb://localhost:27017/defaultdb', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
 
-// Once the database is connected, add the user
 mongoose.connection.once('open', async () => {
   console.log('Connected to MongoDB');
 
   // Create new user
   const newUser = new User({
-    username: 'nahfila@mail.com',  // Assuming the field for email in your schema is named 'username'
+    username: 'nahfila@mail.com', 
     password: 'helloworld123'
   });
 
@@ -24,6 +22,6 @@ mongoose.connection.once('open', async () => {
   } catch (error) {
     console.error('Error adding user:', error);
   } finally {
-    mongoose.connection.close();  // Close the connection
+    mongoose.connection.close(); 
   }
 });
