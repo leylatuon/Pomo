@@ -1,6 +1,7 @@
-import React, { useState, useContext } from "react";
+import { createContext, useContext } from "react";
 
-const AnimationsContext = React.createContext({
+const AnimationsContext = createContext({
+  // create placeholder functions in new context object
   playAllAnimations: () => {},
   setPlayAllAnimations: () => {},
 });

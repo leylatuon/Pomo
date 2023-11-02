@@ -6,20 +6,24 @@ import * as THREE from "three";
 export default function Flowers(props) {
   const group = useRef();
   const { nodes, materials, animations } = useGLTF("/flowers.glb");
-  const { actions } = useAnimations(animations, group);
-
+  const { actions } = useAnimations(animations, group); // Object containing AnimationActions
+  //   console.log(actions);
   const { setPlayAllAnimations } = useAnimationsContext();
 
+  // useCallback() only updates if it's dependency changes
   const playAllAnimations = useCallback(() => {
+    // Object.values() will cast actions into an array so we can iterate
     Object.values(actions).forEach((action) => {
       if (action && typeof action.play === "function") {
-        action.setLoop(THREE.LoopOnce);
-        action.clampWhenFinished = true; // Keeps animation on last keyframe
-        action.reset().play();
+        // Catch error by making sure action is truthy and play() exists for the action
+        action.setLoop(THREE.LoopOnce); // by default will loop, so necessary to set to loop once
+        action.clampWhenFinished = true; // keeps the animation on last keyframe
+        action.reset().play(); // reset animation when button clicked again
       }
     });
-  }, [actions]);
+  }, [actions]); // actions dependency
 
+  // useEffect runs after first render and at each update
   useEffect(() => {
     setPlayAllAnimations(() => playAllAnimations);
   }, [playAllAnimations, setPlayAllAnimations]);
