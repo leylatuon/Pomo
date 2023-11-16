@@ -7,7 +7,13 @@ body,
   width: 100%;
   height: 100%;
   overflow: hidden;
-  background: beige;
+
+  --primary: #d81e5b;
+  --secondary: #8a4efc;
+  --light: #eee;
+  --light-alt: #61759b;
+  --dark: #131a26;
+  --dark-alt: #202b3e;
 }
 
 * {
@@ -16,6 +22,11 @@ body,
   box-sizing: border-box;
 
   font-family: "Fira Sans", sans-serif;
+}
+
+body {
+  background-color: var(--dark-alt);
+  color: var(--light);
 }
 
 h1 {
@@ -170,4 +181,8 @@ h4 {
   margin-top: 16px;
   text-align: center;
   cursor: pointer;
+}
+
+.PomoTimer {
+  text-align: center;
 }
