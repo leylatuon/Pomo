@@ -1,4 +1,6 @@
 const mongoose = require("mongoose");
+const bcrypt = require("bcryptjs");
+
 const Schema = mongoose.Schema;
 
 const TodoSchema = new Schema({
@@ -14,8 +16,11 @@ const TodoSchema = new Schema({
     type: String,
     default: Date.now(),
   },
+  session: {
+    type: String,
+    ref: "Session",
+  },
 });
 
 const Todo = mongoose.model("Todo", TodoSchema);
-
 module.exports = Todo;
