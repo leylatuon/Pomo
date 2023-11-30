@@ -2,30 +2,30 @@ import {useEffect, useState} from 'react';
 import './timer.css';
 
 const modeTimes = {
-    'work' : 25,
-    'shortBreak': 5,
-    'longBreak': 30
+    'Work' : 25,
+    'Short Break': 5,
+    'Long Break': 30
 }
 
 const Timer = () => {
     const [isPaused, setIsPaused] = useState(true);
-    const [mode, setMode] = useState('work'); // work / shortBreak / longBreak
+    const [mode, setMode] = useState('Work'); // work / shortBreak / longBreak
     const [workMode, setWorkMode] = useState(4); // repeat work and short break 4 times
     const [minutesLeft, setMinutesLeft] = useState(25); // inti work minutes (25)
     const [secondsLeft, setSecondsLeft] = useState(0);
     
     function switchMode() {
         if(workMode === 0){
-            setMode('longBreak');
-            setMinutesLeft(modeTimes['longBreak']);
+            setMode('Long Break');
+            setMinutesLeft(modeTimes['Long Break']);
             setIsPaused(true); // end cycle
         }else{
-            const nextMode = mode === 'work' ? 'shortBreak' : 'work';
+            const nextMode = mode === 'Work' ? 'Short Break' : 'Work';
             const nextMinute = modeTimes[nextMode];
             setMode(nextMode);
             setMinutesLeft(nextMinute);
 
-            if(nextMode === 'work'){
+            if(nextMode === 'Work'){
                 setWorkMode((workMode) => workMode - 1);
             }
         }
@@ -68,7 +68,10 @@ const Timer = () => {
     return(
         <div className='PomoTimer'>
             <div>
-                <h2>{minutesLeft < 10 ? '0' + minutesLeft : minutesLeft}:{secondsLeft < 10 ? '0' + secondsLeft : secondsLeft}</h2>
+                <h1>{mode}</h1>
+            </div>
+            <div>
+                <h1>{minutesLeft < 10 ? '0' + minutesLeft : minutesLeft}:{secondsLeft < 10 ? '0' + secondsLeft : secondsLeft}</h1>
             </div>
             <div className='buttons'>
                 <button onClick={() => { startPause() }}> {isPaused ? "Start" : "Pause"} </button>
