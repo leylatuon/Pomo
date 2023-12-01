@@ -1,0 +1,117 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #458a4e;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-container {
+    background-color: rgb(129, 199, 122);
+    padding: 40px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+.input-group button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+}
+
+.input-group button:hover {
+    background-color: #45a049;
+}
+
+a {
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav button {
+    background: none;
+    border: 2px solid white;
+    padding: 5px 10px;
+    color: white;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+nav button:hover {
+    background-color: rgb(94, 161, 85);
+}
+
+.intro {
+    background-color: #6B8E23;
+    text-align: center;
+    padding: 20px;
+    color: white;
+}
+
+.intro img {
+    max-width: 100%;
+    height: auto;
+    border: 5px solid #FFFFFF;
+}
+
+.intro h2 {
+    margin: 20px 0;
+}
+
+#login, #signup, #get-started {
+    background-color: #8FBC8F;
+    border: none;
+    padding: 10px 15px;
+    color: rgb(109, 46, 46);
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#login:hover, #signup:hover, #get-started:hover {
+    background-color: #9ACD32;
+}
+
