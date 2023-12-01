@@ -18,7 +18,9 @@ const Timer = () => {
         if(workMode === 0){
             setMode('Long Break');
             setMinutesLeft(modeTimes['Long Break']);
-            setIsPaused(true); // end cycle
+            setWorkMode((workMode) => workMode - 1);
+        }else if(workMode < 0){ // after long break
+            reset();
         }else{
             const nextMode = mode === 'Work' ? 'Short Break' : 'Work';
             const nextMinute = modeTimes[nextMode];
@@ -41,6 +43,8 @@ const Timer = () => {
         setIsPaused(true);
         setMinutesLeft(25);
         setSecondsLeft(0);
+        setWorkMode(4);
+        setMode('Work');
     }
 
     useEffect(() => {
