@@ -9,10 +9,6 @@ import "./style.css";
 const api_base = "http://localhost:3001";
 
 const App = () => {
-<<<<<<< HEAD:pomo/src/study.jsx
-=======
-
->>>>>>> 14a7eb7cc4c6bf6b4121481c30603c014c615fab:pomo/src/index.jsx
   const [playAllAnimations, setPlayAllAnimations] = useState(() => () => {});
 
   const [todos, setTodos] = useState([]);
@@ -138,11 +134,7 @@ const App = () => {
         <br></br>
         <br></br>
 
-<<<<<<< HEAD:pomo/src/study.jsx
         <Timer />
-=======
-      <Timer/>
->>>>>>> 14a7eb7cc4c6bf6b4121481c30603c014c615fab:pomo/src/index.jsx
 
         <button onClick={playAllAnimations}>Play Animations</button>
 
