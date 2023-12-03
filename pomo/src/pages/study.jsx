@@ -2,13 +2,14 @@ import { Canvas } from "@react-three/fiber";
 import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 import * as THREE from "three";
-import AnimationsContext from "./AnimationsContext";
-import Timer from "./components/PomoTimer/timer.jsx";
-import Experience from "./Experience.jsx";
+import AnimationsContext from "../AnimationsContext";
+import Timer from "../components/PomoTimer/timer.jsx";
+import Experience from "../Experience.jsx";
 import "./style.css";
+
 const api_base = "http://localhost:3001";
 
-const App = () => {
+const StudyPage = () => {
   const [playAllAnimations, setPlayAllAnimations] = useState(() => () => {});
 
   const [todos, setTodos] = useState([]);
@@ -154,6 +155,4 @@ const App = () => {
   );
 };
 
-const root = ReactDOM.createRoot(document.querySelector("#root"));
-
-root.render(<App />);
+export default StudyPage;

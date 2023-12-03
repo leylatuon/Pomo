@@ -1,0 +1,35 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #2f461e; /*NAV BAR COLOUR*/
+}
+
+.logo {
+    font-size: 24px;
+    color: white;
+}
+
+.menu {
+    display: flex;
+}
+
+.menu button {
+    padding: 8px 15px;
+    margin-left: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.login-btn {
+    background-color: #607e3d; /*LOG IN BUTTON COLOUR*/
+    color: white;
+}
+
+.signup-btn {
+    background-color: #493527; /*SIGN IN BUTTON COLOUR*/
+    color: white;
+}

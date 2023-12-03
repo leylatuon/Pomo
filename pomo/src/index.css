@@ -1,0 +1,30 @@
+html,
+body,
+#root {
+  position: flex;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+  --primary: #d81e5b;
+  --secondary: #8a4efc;
+  --light: #eee;
+  --light-alt: #61759b;
+  --dark: #131a26;
+  --dark-alt: #202b3e;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  font-family: "Fira Sans", sans-serif;
+}
+
+body {
+  background-color: var(--dark-alt);
+  color: var(--light);
+}
