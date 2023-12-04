@@ -39,7 +39,7 @@ app.get("/todos", async (req, res) => {
   res.json(todos);
 });
 
-app.post("/todo/new", (req, res) => {
+app.post("/todo/new", async (req, res) => {
   const todo = new Todo({
     text: req.body.text,
   });
@@ -52,19 +52,24 @@ app.post("/todo/new", (req, res) => {
 app.delete("/todo/delete/:id", async (req, res) => {
   const result = await Todo.findByIdAndDelete(req.params.id);
 
+  //todo.save();
+
   res.json({ result });
 });
 
 app.get("/todo/complete/:id", async (req, res) => {
   const todo = await Todo.findById(req.params.id);
 
-  if (todo != null) {
-    if (todo.complete != null) {
-      todo.complete = !todo.complete;
-    }
-  }
+  todo.complete = !todo.complete;
 
   todo.save();
+
+  // if (todo != null) {
+  //   if (todo.complete != null) {
+  //     todo.complete = !todo.complete;
+  //   }
+  //   todo.save();
+  // }
 
   res.json(todo);
 });

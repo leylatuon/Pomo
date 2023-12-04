@@ -57,6 +57,7 @@ h4 {
 
 .todo .delete-todo {
   position: absolute;
+  z-index: 999;
   top: 50%;
   transform: translateY(-50%);
   right: 16px;

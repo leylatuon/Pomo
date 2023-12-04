@@ -3,8 +3,8 @@ import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 import * as THREE from "three";
 import AnimationsContext from "../AnimationsContext";
-import Timer from "../components/PomoTimer/timer.jsx";
 import Experience from "../Experience.jsx";
+import Timer from "../components/PomoTimer/timer.jsx";
 import "./style.css";
 
 const api_base = "http://localhost:3001";
@@ -15,6 +15,7 @@ const StudyPage = () => {
   const [todos, setTodos] = useState([]);
   const [popupActive, setPopupActive] = useState(false);
   const [newTodo, setNewTodo] = useState("");
+  let deleting = false;
 
   useEffect(() => {
     GetTodos();
@@ -28,6 +29,7 @@ const StudyPage = () => {
   };
 
   const completeTodo = async (id) => {
+    console.log("Completeing");
     const data = await fetch(api_base + "/todo/complete/" + id).then((res) =>
       res.json()
     );
@@ -61,6 +63,7 @@ const StudyPage = () => {
   };
 
   const deleteTodo = async (id) => {
+    console.log("Deleting");
     const data = await fetch(api_base + "/todo/delete/" + id, {
       method: "DELETE",
     }).then((res) => res.json());
@@ -83,10 +86,12 @@ const StudyPage = () => {
                 className={"todo" + (todo.complete ? " is-complete" : "")}
                 key={todo._id}
                 onClick={() => {
-                  completeTodo(todo._id);
-                  playAllAnimations;
+                  if (!deleting) {
+                    completeTodo(todo._id);
+                    playAllAnimations();
+                  }
+                  deleting = false;
                 }}
-                //onClick={playAllAnimations}
               >
                 <div className="checkbox"></div>
 
@@ -94,7 +99,11 @@ const StudyPage = () => {
 
                 <div
                   className="delete-todo"
-                  onClick={() => deleteTodo(todo._id)}
+                  key={todo._id}
+                  onClick={() => {
+                    deleting = true;
+                    deleteTodo(todo._id);
+                  }}
                 >
                   x
                 </div>
