@@ -1,20 +1,17 @@
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #458a4e;
-    margin: 0;
-    padding: 0;
+.login-content {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    margin: 25%;
 }
 
 .login-container {
     background-color: rgb(129, 199, 122);
     padding: 40px;
     border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px #0000001a;
     text-align: center;
+    width: 75%;
 }
 
 h1 {
@@ -48,41 +45,12 @@ h1 {
 }
 
 a {
-    color: #4CAF50;
+    color: #000000;
     text-decoration: none;
 }
 
 a:hover {
     text-decoration: underline;
-}
-
-body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-header {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-nav button {
-    background: none;
-    border: 2px solid white;
-    padding: 5px 10px;
-    color: white;
-    margin-left: 10px;
-    cursor: pointer;
-}
-
-nav button:hover {
-    background-color: rgb(94, 161, 85);
 }
 
 .intro {

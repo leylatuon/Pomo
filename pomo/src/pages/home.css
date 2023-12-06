@@ -1,8 +1,8 @@
 .main-content {
-    display: flex;
-    height: calc(100vh - 60px);
-    padding: 0 50px;
-  }
+  display: flex;
+  height: calc(100vh - 60px);
+  padding: 0 50px;
+}
 
 .welcome-card {
   display: inline-flex;
