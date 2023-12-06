@@ -1,3 +1,12 @@
+.study-content {
+  display: flex;
+  padding: 20px;
+}
+
+.tasks-content {
+  width: 50%;
+}
+
 h1 {
   font-size: 40px;
   font-weight: 700;
@@ -151,6 +160,17 @@ h4 {
   margin-top: 16px;
   text-align: center;
   cursor: pointer;
+}
+
+canvas {
+  max-width: 100%;
+  height: auto;
+}
+
+.plant-timer-content {
+  display:flex;
+  flex-direction: column;
+  width: 50%;
 }
 
 .PomoTimer {

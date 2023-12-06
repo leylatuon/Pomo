@@ -5,7 +5,7 @@ import * as THREE from "three";
 import AnimationsContext from "../AnimationsContext";
 import Experience from "../Experience.jsx";
 import Timer from "../components/PomoTimer/timer.jsx";
-import "./style.css";
+import "./study.css";
 
 const api_base = "http://localhost:3001";
 
@@ -72,48 +72,66 @@ const StudyPage = () => {
   };
 
   return (
-    <div className="App">
+    <div className="study-content">
       <AnimationsContext.Provider
         value={{ playAllAnimations, setPlayAllAnimations }}
       >
-        <h1>Welcome, Mark</h1>
-        <h4>Your tasks</h4>
+        <div class="tasks-content">
+          <h1>Welcome, Mark</h1>
+          <h4>Your tasks</h4>
 
-        <div className="todos">
-          {todos.length > 0 ? (
-            todos.map((todo) => (
-              <div
-                className={"todo" + (todo.complete ? " is-complete" : "")}
-                key={todo._id}
-                onClick={() => {
-                  if (!deleting) {
-                    completeTodo(todo._id);
-                    playAllAnimations();
-                  }
-                  deleting = false;
-                }}
-              >
-                <div className="checkbox"></div>
-
-                <div className="text">{todo.text}</div>
-
+          <div className="todos">
+            {todos.length > 0 ? (
+              todos.map((todo) => (
                 <div
-                  className="delete-todo"
+                  className={"todo" + (todo.complete ? " is-complete" : "")}
                   key={todo._id}
                   onClick={() => {
-                    deleting = true;
-                    deleteTodo(todo._id);
+                    if (!deleting) {
+                      completeTodo(todo._id);
+                      playAllAnimations();
+                    }
+                    deleting = false;
                   }}
                 >
-                  x
+                  <div className="checkbox"></div>
+
+                  <div className="text">{todo.text}</div>
+
+                  <div
+                    className="delete-todo"
+                    key={todo._id}
+                    onClick={() => {
+                      deleting = true;
+                      deleteTodo(todo._id);
+                    }}
+                  >
+                    x
+                  </div>
                 </div>
-              </div>
-            ))
-          ) : (
-            <p>You currently have no tasks</p>
-          )}
+              ))
+            ) : (
+              <p>You currently have no tasks</p>
+            )}
+          </div>
         </div>
 
+        <div class="plant-timer-content">
+          <button onClick={playAllAnimations}>Play Animations</button>
+          <Canvas
+            dpr={[1, 2]}
+            gl={{
+              antialias: true,
+              toneMapping: THREE.ACESFilmicToneMapping,
+              outputColorSpace: THREE.SRGBColorSpace,
+            }}
+            camera={{ fov: 20, near: 0.1, far: 200, position: [3, 2, 6] }}
+          >
+            <Experience />
+          </Canvas>
+          <Timer />
+        </div>
+        
         <div className="addPopup" onClick={() => setPopupActive(true)}>
           +
         </div>
@@ -139,27 +157,7 @@ const StudyPage = () => {
         ) : (
           ""
         )}
-
-        <br></br>
-        <br></br>
-        <br></br>
-
-        <Timer />
-
-        <button onClick={playAllAnimations}>Play Animations</button>
-
-        <Canvas
-          dpr={[1, 2]}
-          gl={{
-            antialias: true,
-            toneMapping: THREE.ACESFilmicToneMapping,
-            outputColorSpace: THREE.SRGBColorSpace,
-          }}
-          camera={{ fov: 20, near: 0.1, far: 200, position: [3, 2, 6] }}
-        >
-          <Experience />
-        </Canvas>
-      </AnimationsContext.Provider>
+      </AnimationsContext.Provider> 
     </div>
   );
 };
