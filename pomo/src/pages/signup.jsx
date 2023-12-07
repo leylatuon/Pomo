@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "./login.css";
 
 const SignUp = () => {
   const [username, setUsername] = useState("");
@@ -27,34 +28,36 @@ const SignUp = () => {
     };
 
     return (
-        <div className="login-container">
-            <h1>Sign Up</h1>
-            <p>Already a member? <a href="/login">Log In</a></p> 
-            <form id="login-form" onSubmit={handleSubmit}>
-                <div className="input-group">
-                    <input
-                        type="text"
-                        id="username"
-                        value={username}
-                        onChange={(e) => setUsername(e.target.value)}
-                        placeholder="Username"
-                        required
-                    />
-                </div>
-                <div className="input-group">
-                    <input
-                        type="password"
-                        id="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        placeholder="Password"
-                        required
-                    />
-                </div>
-                <div className="input-group">
-                    <button type="submit">Sign Up</button>
-                </div>
-            </form>
+        <div class="login-content">
+          <div className="login-container">
+              <h1>Sign Up</h1>
+              <p>Already a member? <a href="/login">Log In</a></p> 
+              <form id="login-form" onSubmit={handleSubmit}>
+                  <div className="input-group">
+                      <input
+                          type="text"
+                          id="username"
+                          value={username}
+                          onChange={(e) => setUsername(e.target.value)}
+                          placeholder="Username"
+                          required
+                      />
+                  </div>
+                  <div className="input-group">
+                      <input
+                          type="password"
+                          id="password"
+                          value={password}
+                          onChange={(e) => setPassword(e.target.value)}
+                          placeholder="Password"
+                          required
+                      />
+                  </div>
+                  <div className="input-group">
+                      <button type="submit">Sign Up</button>
+                  </div>
+              </form>
+          </div>
         </div>
     );
 };
