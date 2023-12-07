@@ -15,11 +15,19 @@ const StudyPage = () => {
   const [todos, setTodos] = useState([]);
   const [popupActive, setPopupActive] = useState(false);
   const [newTodo, setNewTodo] = useState("");
+  const [username, setUsername] = useState('');
   let deleting = false;
 
   useEffect(() => {
     GetTodos();
   }, []);
+
+  useEffect(() => {
+    const storedUsername = localStorage.getItem('username');
+    if (storedUsername) {
+      setUsername(storedUsername);
+    }
+  }, []); 
 
   const GetTodos = () => {
     fetch(api_base + "/todos")
@@ -77,7 +85,7 @@ const StudyPage = () => {
         value={{ playAllAnimations, setPlayAllAnimations }}
       >
         <div class="tasks-content">
-          <h1>Welcome, Mark</h1>
+        <h1>Welcome, {username || "Guest"}</h1>
           <h4>Your tasks</h4>
 
           <div className="todos">
