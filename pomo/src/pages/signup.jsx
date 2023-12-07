@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import "./login.css";
 
 const SignUp = () => {
@@ -31,7 +31,7 @@ const SignUp = () => {
         <div class="login-content">
           <div className="login-container">
               <h1>Sign Up</h1>
-              <p>Already a member? <a href="/login">Log In</a></p> 
+              <p>Already a member? <Link to="/login">Log In</Link></p> 
               <form id="login-form" onSubmit={handleSubmit}>
                   <div className="input-group">
                       <input
@@ -56,6 +56,7 @@ const SignUp = () => {
                   <div className="input-group">
                       <button type="submit">Sign Up</button>
                   </div>
+                  <p><Link to="/study">Continue as Guest</Link></p> 
               </form>
           </div>
         </div>
