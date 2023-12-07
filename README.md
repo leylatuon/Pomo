@@ -1,5 +1,11 @@
 # Pomo
 
+Start by running npm i in both api and pomo directory to install all dependencies.
+
+To run the front end, go to the pomo directory and run npm run dev
+
+To run the back end, go to the api directory and run npm start
+
 Project Pitch Slidedeck: https://docs.google.com/presentation/d/1NQCGvrGVqeObl3ZiJrulwMm4XHdR9-gMWOFTFyNgtZM/edit#slide=id.g27c1dc88024_0_22
 
 Functinalities List:
