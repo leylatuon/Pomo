@@ -10,6 +10,7 @@
 
 .welcome-card {
   display: inline-flex;
+  text-align: center;
   align-items: center;
   background-color: #5f8346; /*WELCOME CARD COLOUR*/
   padding: 20px;
@@ -18,17 +19,14 @@
   width: 100%;
   height: 500px;
   margin: auto;
+  z-index: 1;
 }
 
 .welcome-card img {
-  width: 100%;
+  width: 60%;
   height: 100%;
   border-radius: 5px;
-}
-
-.welcome-content {
-  width: 80%;
-  text-align: center;
+  margin-right: 60px;
 }
 
 .get-started-btn {
@@ -38,6 +36,9 @@
   border-radius: 5px;
   cursor: pointer;
   font-size: 20px;
+}
+.get-started-btn:hover {
+  background-color: #493527;
 }
 
 .webgl-container {

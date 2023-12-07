@@ -179,3 +179,23 @@ canvas {
   padding-top: 25px;
   height: 75%;
 }
+
+.play-animations-btn {
+  padding: 10px 20px; 
+  font-size: 1rem; 
+  color: rgb(4, 39, 6); 
+  background: #2f75ae; 
+  border: none; 
+  border-radius: 4px; 
+  cursor: pointer; 
+  display: block; 
+  width: auto; 
+  transition: all 0.3s ease; 
+  height: 50px; 
+  line-height: 50px;
+  padding: 0 20px;  
+}
+
+.play-animations-btn:hover {
+  background: #c56683; 
+}

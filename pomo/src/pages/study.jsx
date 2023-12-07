@@ -15,12 +15,20 @@ const StudyPage = () => {
   const [todos, setTodos] = useState([]);
   const [popupActive, setPopupActive] = useState(false);
   const [newTodo, setNewTodo] = useState("");
+  const [username, setUsername] = useState("");
   const [endSessionButton, setEndSessionButton] = useState(false);
 
   let deleting = false;
 
   useEffect(() => {
     GetTodos();
+  }, []);
+
+  useEffect(() => {
+    const storedUsername = localStorage.getItem("username");
+    if (storedUsername) {
+      setUsername(storedUsername);
+    }
   }, []);
 
   // TODO:
@@ -108,7 +116,7 @@ const StudyPage = () => {
         value={{ playAllAnimations, setPlayAllAnimations }}
       >
         <div class="tasks-content">
-          <h1>Welcome, Mark</h1>
+          <h1>Welcome, {username || "Guest"}</h1>
           <h4>Your tasks</h4>
 
           <div className="todos">
@@ -162,7 +170,9 @@ const StudyPage = () => {
         </div>
 
         <div className="plant-timer-content">
-          <button onClick={playAllAnimations}>Play Animations</button>
+          <button className="play-animations-btn" onClick={playAllAnimations}>
+            Play Animations
+          </button>
           <Canvas
             dpr={[1, 2]}
             gl={{

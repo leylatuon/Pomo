@@ -13,8 +13,10 @@ const Home = () => {
       <div className="main-content">
         <div className="welcome-card">
           <img src="./images/leaves1.jpg" alt="Nature" />
-          <h1>Welcome To Pomo</h1>
-          <button className="get-started-btn">Get Started</button>
+          <div classname="welcome-content">
+            <h1>Welcome To Pomo</h1>
+            <Link to="/signup"><button className="get-started-btn">Get Started</button></Link>
+          </div>
         </div>
       </div>
       <div className="webgl-container">

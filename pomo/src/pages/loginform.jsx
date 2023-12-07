@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 function LoginForm() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -20,7 +20,7 @@ function LoginForm() {
     .then((data) => {
       if (data.token) {
         localStorage.setItem("accessToken", data.token);
-        alert("Login successful!");
+        localStorage.setItem("username", username); 
         navigate('/study');
       } else {
         alert("Login failed: " + data.message);
