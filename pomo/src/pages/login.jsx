@@ -1,9 +1,15 @@
 import React from "react";
+<<<<<<< HEAD
 import { Link } from 'react-router-dom'
+=======
+import { Link } from "react-router-dom";
+import LoginForm from "./loginform";
+>>>>>>> 0234915 (login/signup functionality)
 import "./login.css";
 
 const Login = () => {
     return (
+<<<<<<< HEAD
         <div class="login-content">
             <div class="login-container">
                 <h1>Log In</h1>
@@ -34,6 +40,14 @@ const Login = () => {
                         <button type="submit">Log In</button>
                     </div>
                 </form>
+=======
+        <div className="login-container">
+            <h1>Log In</h1>
+            <p>Not Registered Yet? <Link to="/signup">Create an account.</Link></p>
+            <LoginForm /> 
+            <div className="input-group">
+                <Link to="/forgot-password">Forgot your password?</Link>
+>>>>>>> 0234915 (login/signup functionality)
             </div>
         </div>
     );

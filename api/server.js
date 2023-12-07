@@ -92,7 +92,7 @@ app.use((req, res, next) => {
 });
 
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "homepage.html"));
+  res.sendFile(path.join(__dirname, "login.js"));
 });
 
 app.listen(3001, () => {
