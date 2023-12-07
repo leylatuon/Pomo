@@ -1,5 +1,7 @@
 # Pomo
 
+Install MongoDB locally and start server (MongoDB can be installed using Homebrew on macOS machines).
+
 Start by running npm i in both api and pomo directory to install all dependencies.
 
 To run the front end, go to the pomo directory and run npm run dev
