@@ -30,16 +30,24 @@
 }
 
 .get-started-btn {
-  padding: 0px 10px;
-  width: fit-content;
+  align-items: center;      
+  justify-content: center; 
+  padding: 0px 30px;      
+  width: fit-content;    
   border: none;
-  border-radius: 5px;
+  border-radius: 20px;
   cursor: pointer;
   font-size: 20px;
+  background-color: #3d7527; 
+  color: white;          
+  font-weight: bold;      
+  transition: background-color 0.3s; 
 }
+
 .get-started-btn:hover {
-  background-color: #493527;
+  background-color: #2b531c; 
 }
+
 
 .webgl-container {
   position: relative;
