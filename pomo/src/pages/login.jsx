@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import LoginForm from "./loginform"; // Ensure this path is correct for your project structure
 import "./login.css";
+import LoginForm from "./loginform"; // Ensure this path is correct for your project structure
 
 const Login = () => {
   return (

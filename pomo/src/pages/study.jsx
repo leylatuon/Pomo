@@ -24,13 +24,8 @@ const StudyPage = () => {
   }, []);
 
   // TODO:
-  // When the user hits "end session", a new session is created, the todos get added to the session, and the session is saved to the server, The todos are then cleared, ready for new tasks
-
-  // Maybe when "end session" is clicked, the user is redirected to the sessions page.
-
   // CSS
-  // Add username to the welcome header
-  // change todos to tasks if theres time
+  // Add username to the welcome header (done already)
 
   const endSession = async () => {
     const data = await fetch(api_base + "/sessions/new", {
