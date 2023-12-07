@@ -18,9 +18,6 @@ app.use("/auth", authRouter);
 
 mongoose
   .connect("mongodb://127.0.0.1:27017/pomodatabase", {
-    // .connect(
-    //   `mongodb://${username}:${password}@localhost:27017/pomodatabase?authSource=admin`,
-    //   { // Throws authentication error
     useNewUrlParser: true,
     useUnifiedTopology: true,
     authSource: "admin",
@@ -32,6 +29,25 @@ mongoose
 const Todo = require("./models/Todo");
 const user = require("./models/user");
 const Session = require("./models/Session");
+
+// SESSIONS
+app.get("/sessions", async (req, res) => {
+  const sessions = await Session.find();
+  res.json(sessions);
+});
+
+app.post("/sessions/new", async (req, res) => {
+  const session = new Session({
+    title: req.body.title,
+    active: req.body.active,
+    user: req.body.user,
+    todos: req.body.todos,
+    numberOfTasks: req.body.numberOfTasks,
+  });
+
+  session.save();
+  res.json(session);
+});
 
 app.get("/todos", async (req, res) => {
   const todos = await Todo.find();
@@ -59,18 +75,8 @@ app.delete("/todo/delete/:id", async (req, res) => {
 
 app.get("/todo/complete/:id", async (req, res) => {
   const todo = await Todo.findById(req.params.id);
-
   todo.complete = !todo.complete;
-
   todo.save();
-
-  // if (todo != null) {
-  //   if (todo.complete != null) {
-  //     todo.complete = !todo.complete;
-  //   }
-  //   todo.save();
-  // }
-
   res.json(todo);
 });
 

@@ -15,11 +15,39 @@ const StudyPage = () => {
   const [todos, setTodos] = useState([]);
   const [popupActive, setPopupActive] = useState(false);
   const [newTodo, setNewTodo] = useState("");
+
   let deleting = false;
 
   useEffect(() => {
     GetTodos();
   }, []);
+
+  // TODO:
+  // When the user hits "end session", a new session is created, the todos get added to the session, and the session is saved to the server, The todos are then cleared, ready for new tasks
+
+  // Maybe when "end session" is clicked, the user is redirected to the sessions page.
+
+  // CSS
+  // Add username to the welcome header
+  // change todos to tasks if theres time
+
+  const endSession = async () => {
+    const data = await fetch(api_base + "/sessions/new", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        title: "Session", // temp
+        active: false,
+        user: "Mark", // temp
+        todos: todos,
+        numberOfTasks: todos.length,
+      }),
+    }).then((res) => res.json());
+
+    // TODO: clear todos
+  };
 
   const GetTodos = () => {
     fetch(api_base + "/todos")
@@ -116,7 +144,7 @@ const StudyPage = () => {
           </div>
         </div>
 
-        <div class="plant-timer-content">
+        <div className="plant-timer-content">
           <button onClick={playAllAnimations}>Play Animations</button>
           <Canvas
             dpr={[1, 2]}
@@ -131,9 +159,18 @@ const StudyPage = () => {
           </Canvas>
           <Timer />
         </div>
-        
+
         <div className="addPopup" onClick={() => setPopupActive(true)}>
           +
+        </div>
+
+        <div
+          className="button"
+          onClick={() => {
+            endSession();
+          }}
+        >
+          End Session
         </div>
 
         {popupActive ? (
@@ -157,7 +194,7 @@ const StudyPage = () => {
         ) : (
           ""
         )}
-      </AnimationsContext.Provider> 
+      </AnimationsContext.Provider>
     </div>
   );
 };
