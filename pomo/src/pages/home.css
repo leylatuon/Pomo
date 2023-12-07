@@ -67,18 +67,24 @@
 
 .section-right {
   padding-left: 50%;
-  padding-right: 20%;
+  padding-right: 10%;
 }
 
 .section-left {
-  padding-left: 20%;
+  padding-left: 10%;
   padding-right: 50%;
 }
 
 .section-title {
-  font-size: 3vmin;
+  font-size: 6vmin;
   text-transform: uppercase;
 }
+
+
+.section-copy {
+  font-size: 3vmin;
+}
+
 
 section:nth-child(odd) {
   justify-content: flex-end;

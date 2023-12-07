@@ -1,6 +1,7 @@
 import { useThree, extend, useFrame } from "@react-three/fiber";
 import { useState, useEffect, useRef, useMemo } from "react";
 import * as THREE from "three";
+import gsap from 'gsap';
 import Fern from "./Fern.jsx";
 import Sprout from "./Sprout.jsx";
 import Leaf from "./Leaf.jsx";
@@ -9,19 +10,19 @@ import FlowersOriginal from "./FlowersOriginal.jsx";
 export default function HomeAnimation() {
   const { scene, camera, gl } = useThree();
   const objectDistance = 4;
-  const introCardOffset = -5;
+  const introCardOffset = -5.5;
   const groupRef = useRef();
-  const clockRef = useRef();
+  const flowerRef = useRef();
   const sproutRef = useRef();
   const leafRef = useRef();
   const fernRef = useRef();
 
-  // const sectionMeshes = [Fern, Sprout, Sprout];
+  const sectionMeshes = [flowerRef, sproutRef, leafRef, fernRef];
+  const [currentSection, setCurrentSection] = useState(0);
   const [scrollY, setScrollY] = useState(0);
   const [cursorX, setCursorX] = useState(0);
   const [cursorY, setCursorY] = useState(0);
 
-  // Particles
   const particles = useMemo(() => {
     const particlesCount = 400;
     const positions = new Float32Array(particlesCount * 3);
@@ -58,6 +59,20 @@ export default function HomeAnimation() {
       if (scrollPosition >= minScroll && scrollPosition <= maxScroll) {
         setScrollY(scrollPosition);
       }
+      const newSection = Math.round(scrollPosition / window.innerHeight);
+
+      // Animate when new section reacted
+      if(newSection !== currentSection) {
+        setCurrentSection(newSection);
+
+        gsap.to(sectionMeshes[newSection].current.rotation, {
+          duration: 3,
+          ease: 'power2.inOut',
+          x: '+=0',
+          y: '+=30',
+          z: '+=.075'
+        });
+      }
     };
 
     const handleMouseMove = (event) => {
@@ -72,22 +87,18 @@ export default function HomeAnimation() {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("mousemove", handleMouseMove);
     };
-  }, []);
+  }, [currentSection, sectionMeshes]);
 
   useFrame((state, delta) => {
     camera.position.y = (-scrollY / window.innerHeight) * objectDistance;
 
     const parallaxX = cursorX;
     const parallaxY = -cursorY;
-    // parallaxGroup.position.x +=
-    //   (parallaxX - parallaxGroup.position.x) * 5 * delta;
-    // parallaxGroup.position.y +=
-    //   (parallaxY - parallaxGroup.position.y) * 5 * delta;
 
     parallaxGroup.position.x = parallaxX;
     parallaxGroup.position.y = parallaxY;
-    if (clockRef.current) {
-      clockRef.current.rotation.y += delta * 0.25;
+    if (flowerRef.current) {
+      flowerRef.current.rotation.y += delta * 0.25;
     }
     if (sproutRef.current) {
       sproutRef.current.rotation.y += delta * 0.75;
@@ -108,7 +119,7 @@ export default function HomeAnimation() {
       <primitive object={particles}  position={[-2, introCardOffset, 0]}/>
       <group ref={groupRef}>
         <FlowersOriginal
-          ref={clockRef}
+          ref={flowerRef}
           scale={1}
           position={[-2, introCardOffset, 0]}
         />
