@@ -2,16 +2,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 25%;
+    height: calc(100vh - 60px);
 }
 
 .login-container {
-    background-color: rgb(129, 199, 122);
+    background-color: rgb(134, 184, 130);
     padding: 40px;
     border-radius: 5px;
     box-shadow: 0 0 10px #0000001a;
     text-align: center;
-    width: 75%;
+    width: 50%;
 }
 
 h1 {
@@ -25,60 +25,32 @@ h1 {
 .input-group input {
     width: 100%;
     padding: 10px;
-    border: 1px solid #ddd;
+    border: 1px solid #dddddd;
     border-radius: 5px;
     margin-top: 5px;
 }
 
 .input-group button {
     width: 100%;
+    height: fit-content;
     padding: 10px;
     border: none;
     border-radius: 5px;
-    background-color: #4CAF50;
+    background-color: #3b653d;
+    font-size: 15px;
     color: white;
     cursor: pointer;
 }
 
 .input-group button:hover {
-    background-color: #45a049;
+    background-color:  #5d9b60;
 }
 
-a {
+.login-container a {
     color: #000000;
     text-decoration: none;
 }
 
-a:hover {
+.login-container a:hover {
     text-decoration: underline;
-}
-
-.intro {
-    background-color: #6B8E23;
-    text-align: center;
-    padding: 20px;
-    color: white;
-}
-
-.intro img {
-    max-width: 100%;
-    height: auto;
-    border: 5px solid #FFFFFF;
-}
-
-.intro h2 {
-    margin: 20px 0;
-}
-
-#login, #signup, #get-started {
-    background-color: #8FBC8F;
-    border: none;
-    padding: 10px 15px;
-    color: rgb(109, 46, 46);
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-#login:hover, #signup:hover, #get-started:hover {
-    background-color: #9ACD32;
 }

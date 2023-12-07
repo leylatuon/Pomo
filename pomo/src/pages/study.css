@@ -1,6 +1,7 @@
 .study-content {
   display: flex;
-  padding: 20px;
+  padding: 40px;
+  height: calc(100vh - 60px);
 }
 
 .tasks-content {
@@ -164,7 +165,7 @@ h4 {
 
 canvas {
   max-width: 100%;
-  height: auto;
+  height: 50%;
 }
 
 .plant-timer-content {
@@ -175,4 +176,6 @@ canvas {
 
 .PomoTimer {
   text-align: center;
+  padding-top: 25px;
+  height: 75%;
 }

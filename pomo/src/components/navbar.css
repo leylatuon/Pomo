@@ -6,9 +6,10 @@
     background-color: #2f461e; /*NAV BAR COLOUR*/
 }
 
-.logo {
-    font-size: 24px;
+.logo a {
+    font-size: 30px;
     color: white;
+    text-decoration: none;
 }
 
 .menu {

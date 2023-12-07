@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom'
 import './home.css';
 
 const Home = () => {
@@ -8,7 +9,7 @@ const Home = () => {
             <img src="./images/leaves1.jpg" alt="Nature" />
             <div class="welcome-content">
               <h1>Welcome To Pomo</h1>
-              <button class="get-started-btn">Get Started</button>
+              <Link to="/signup"><button class="get-started-btn">Get Started</button></Link>
             </div>
         </div>
     </div>
