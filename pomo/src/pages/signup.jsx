@@ -1,39 +1,3 @@
-<<<<<<< HEAD
-import React from "react";
-import { Link } from 'react-router-dom'
-import './login.css';
-
-const SignUp = () => {
-    return(
-        <div class="login-content">
-            <div class="login-container">
-                <h1>Sign Up</h1>
-                <p>Already a member? <Link to="/login">Log In.</Link></p>
-                <form id="login-form">
-                    <div class="input-group">
-                        <input
-                            type="text"
-                            id="username"
-                            name="username"
-                            placeholder="Username"
-                            required
-                        />
-                    </div>
-                    <div class="input-group">
-                        <input
-                            type="password"
-                            id="password"
-                            name="password"
-                            placeholder="Password"
-                            required
-                        />
-                    </div>
-                    <div class="input-group">
-                        <button type="submit">Sign Up</button>
-                    </div>
-                </form>
-            </div>
-=======
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -43,8 +7,9 @@ const SignUp = () => {
     const navigate = useNavigate();
 
     const handleSubmit = async (event) => {
-        event.preventDefault(); 
+        event.preventDefault(); // Prevent default form submission
 
+        // Send the username and password to the server
         const response = await fetch("http://localhost:3001/auth/register", {
             method: "POST",
             headers: {
@@ -56,7 +21,7 @@ const SignUp = () => {
         const data = await response.json();
         if (response.ok) {
             alert('User registered successfully');
-            navigate('/login'); 
+            navigate('/login'); // Navigate to login page after successful registration
         } else {
             alert(`Failed to register user: ${data.message}`);
         }
@@ -65,7 +30,7 @@ const SignUp = () => {
     return (
         <div className="login-container">
             <h1>Sign Up</h1>
-            <p>Already a member? <a href="/login">Log In</a></p> 
+            <p>Already a member? <a href="/login">Log In</a></p> {/* Updated this line */}
             <form id="login-form" onSubmit={handleSubmit}>
                 <div className="input-group">
                     <input
@@ -91,7 +56,6 @@ const SignUp = () => {
                     <button type="submit">Sign Up</button>
                 </div>
             </form>
->>>>>>> 0234915 (login/signup functionality)
         </div>
     );
 };
