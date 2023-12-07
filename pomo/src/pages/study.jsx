@@ -15,7 +15,9 @@ const StudyPage = () => {
   const [todos, setTodos] = useState([]);
   const [popupActive, setPopupActive] = useState(false);
   const [newTodo, setNewTodo] = useState("");
-  const [username, setUsername] = useState('');
+  const [username, setUsername] = useState("");
+  const [endSessionButton, setEndSessionButton] = useState(false);
+
   let deleting = false;
 
   useEffect(() => {
@@ -23,11 +25,33 @@ const StudyPage = () => {
   }, []);
 
   useEffect(() => {
-    const storedUsername = localStorage.getItem('username');
+    const storedUsername = localStorage.getItem("username");
     if (storedUsername) {
       setUsername(storedUsername);
     }
-  }, []); 
+  }, []);
+
+  // TODO:
+  // CSS
+  // Add username to the welcome header (done already)
+
+  const endSession = async () => {
+    const data = await fetch(api_base + "/sessions/new", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        title: "Session", // temp
+        active: false,
+        user: "Mark", // temp
+        todos: todos,
+        numberOfTasks: todos.length,
+      }),
+    }).then((res) => res.json());
+
+    deleteAllTodos();
+  };
 
   const GetTodos = () => {
     fetch(api_base + "/todos")
@@ -79,13 +103,20 @@ const StudyPage = () => {
     setTodos((todos) => todos.filter((todo) => todo._id !== data.result._id));
   };
 
+  const deleteAllTodos = () => {
+    // array1.forEach((element) => console.log(element));
+    todos.forEach((todo) => {
+      deleteTodo(todo._id);
+    });
+  };
+
   return (
     <div className="study-content">
       <AnimationsContext.Provider
         value={{ playAllAnimations, setPlayAllAnimations }}
       >
         <div class="tasks-content">
-        <h1>Welcome, {username || "Guest"}</h1>
+          <h1>Welcome, {username || "Guest"}</h1>
           <h4>Your tasks</h4>
 
           <div className="todos">
@@ -122,11 +153,26 @@ const StudyPage = () => {
               <p>You currently have no tasks</p>
             )}
           </div>
+
+          {endSessionButton ? (
+            <div
+              className="button"
+              onClick={() => {
+                setEndSessionButton(false);
+                endSession();
+              }}
+            >
+              End Session
+            </div>
+          ) : (
+            ""
+          )}
         </div>
 
-        <div class="plant-timer-content">
+        <div className="plant-timer-content">
           <button className="play-animations-btn" onClick={playAllAnimations}>
-               Play Animations</button>
+            Play Animations
+          </button>
           <Canvas
             dpr={[1, 2]}
             gl={{
@@ -140,7 +186,7 @@ const StudyPage = () => {
           </Canvas>
           <Timer />
         </div>
-        
+
         <div className="addPopup" onClick={() => setPopupActive(true)}>
           +
         </div>
@@ -158,7 +204,13 @@ const StudyPage = () => {
                 onChange={(e) => setNewTodo(e.target.value)}
                 value={newTodo}
               />
-              <div className="button" onClick={addTodo}>
+              <div
+                className="button"
+                onClick={() => {
+                  setEndSessionButton(true);
+                  addTodo();
+                }}
+              >
                 Create Task
               </div>
             </div>
@@ -166,7 +218,7 @@ const StudyPage = () => {
         ) : (
           ""
         )}
-      </AnimationsContext.Provider> 
+      </AnimationsContext.Provider>
     </div>
   );
 };

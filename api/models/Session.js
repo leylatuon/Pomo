@@ -1,12 +1,12 @@
 const mongoose = require("mongoose");
-const bcrypt = require("bcryptjs");
+//const bcrypt = require("bcryptjs");
 
 const Schema = mongoose.Schema;
 
 const SessionSchema = new Schema({
-  name: {
+  title: {
     type: String,
-    require: true,
+    default: "Placeholder",
   },
   active: {
     type: Boolean,
@@ -18,8 +18,9 @@ const SessionSchema = new Schema({
   },
   todos: [
     {
-      type: Schema.Types.ObjectId,
-      ref: "Todo",
+      text: { type: String, require: true },
+      complete: { type: Boolean, default: false },
+      timestamp: { type: String, default: Date.now() },
     },
   ],
   numberOfTasks: {
@@ -30,16 +31,3 @@ const SessionSchema = new Schema({
 
 const Session = mongoose.model("Session", SessionSchema);
 module.exports = Session;
-
-// const postSchema = new Schema({
-//   title: String,
-//   content: String,
-//   author: { type: String, ref: "User" },
-// });
-// module.export = mongoose.model("Post", postSchema);
-
-// const userSchema = new Schema({
-//   name: String,
-//   posts: [{ type: Schema.Types.ObjectId, ref: "Post" }],
-// });
-// module.export = mongoose.model("User", userSchema);
