@@ -1,14 +1,17 @@
 # Pomo
+## Instructions/How to Run
+1. Install MongoDB locally and start server (MongoDB can be installed using Homebrew on macOS machines).
 
-Install MongoDB locally and start server (MongoDB can be installed using Homebrew on macOS machines).
+2. Start by running npm i in both api and pomo directory to install all dependencies.
 
-Start by running npm i in both api and pomo directory to install all dependencies.
+3. To run the front end, go to the pomo directory and run npm run dev
 
-To run the front end, go to the pomo directory and run npm run dev
+4. To run the back end, go to the api directory and run npm start
 
-To run the back end, go to the api directory and run npm start
 
-Project Pitch Slidedeck: https://docs.google.com/presentation/d/1NQCGvrGVqeObl3ZiJrulwMm4XHdR9-gMWOFTFyNgtZM/edit#slide=id.g27c1dc88024_0_22
+## Other Project Documents
+- Figma: https://www.figma.com/file/seCdnk4Zq7jWBLgumOxm9J/Pomo?type=design&node-id=0%3A1&mode=design&t=3DskXCTJfH16oNni-1
+- Project Pitch Slidedeck: https://docs.google.com/presentation/d/1NQCGvrGVqeObl3ZiJrulwMm4XHdR9-gMWOFTFyNgtZM/edit#slide=id.g27c1dc88024_0_22
 
 Functinalities List:
 1. Timer that is divded into sections: 
