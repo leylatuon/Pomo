@@ -117,7 +117,7 @@ const StudyPage = () => {
       >
         <div class="tasks-content">
           <h1>Welcome, {username || "Guest"}</h1>
-          <h4>Your tasks</h4>
+          <h4>Your Tasks:</h4>
 
           <div className="todos">
             {todos.length > 0 ? (
