@@ -33,7 +33,7 @@ const Login = () => {
   };
 
   return (
-    <div className="login-content"> {/* Corrected class attribute */}
+    <div className="login-content"> 
       <div className="login-container">
         <h1>Log In</h1>
         <p>
