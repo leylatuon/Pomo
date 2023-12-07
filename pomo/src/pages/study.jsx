@@ -15,6 +15,7 @@ const StudyPage = () => {
   const [todos, setTodos] = useState([]);
   const [popupActive, setPopupActive] = useState(false);
   const [newTodo, setNewTodo] = useState("");
+  const [endSessionButton, setEndSessionButton] = useState(false);
 
   let deleting = false;
 
@@ -106,15 +107,6 @@ const StudyPage = () => {
     });
   };
 
-  // const deleteAllTodos = async () => {
-  //   const data = await fetch(api_base + "/todo/delete/all", {
-  //     method: "DELETE",
-  //   });
-
-  //   const emptyTodos = [];
-  //   setTodos(emptyTodos);
-  // };
-
   return (
     <div className="study-content">
       <AnimationsContext.Provider
@@ -158,6 +150,20 @@ const StudyPage = () => {
               <p>You currently have no tasks</p>
             )}
           </div>
+
+          {endSessionButton ? (
+            <div
+              className="button"
+              onClick={() => {
+                setEndSessionButton(false);
+                endSession();
+              }}
+            >
+              End Session
+            </div>
+          ) : (
+            ""
+          )}
         </div>
 
         <div className="plant-timer-content">
@@ -180,15 +186,6 @@ const StudyPage = () => {
           +
         </div>
 
-        <div
-          className="button"
-          onClick={() => {
-            endSession();
-          }}
-        >
-          End Session
-        </div>
-
         {popupActive ? (
           <div className="popup">
             <div className="closePopup" onClick={() => setPopupActive(false)}>
@@ -202,7 +199,13 @@ const StudyPage = () => {
                 onChange={(e) => setNewTodo(e.target.value)}
                 value={newTodo}
               />
-              <div className="button" onClick={addTodo}>
+              <div
+                className="button"
+                onClick={() => {
+                  setEndSessionButton(true);
+                  addTodo();
+                }}
+              >
                 Create Task
               </div>
             </div>
