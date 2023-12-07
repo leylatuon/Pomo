@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import "./login.css";
 
 const Login = () => {
@@ -22,6 +21,7 @@ const Login = () => {
     .then((data) => {
       if (data.token) {
         localStorage.setItem("accessToken", data.token);
+        localStorage.setItem("username", username); // Save username for display
         navigate('/study');
       } else {
         alert("Login failed: " + data.message);
@@ -33,7 +33,7 @@ const Login = () => {
   };
 
   return (
-    <div class="login-content">
+    <div className="login-content"> {/* Corrected class attribute */}
       <div className="login-container">
         <h1>Log In</h1>
         <p>
@@ -70,3 +70,4 @@ const Login = () => {
 };
 
 export default Login;
+
