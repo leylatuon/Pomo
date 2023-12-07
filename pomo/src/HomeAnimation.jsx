@@ -1,5 +1,5 @@
 import { useThree, extend, useFrame } from "@react-three/fiber";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
 import * as THREE from "three";
 import Fern from "./Fern.jsx";
 import Sprout from "./Sprout.jsx";
@@ -21,6 +21,29 @@ export default function HomeAnimation() {
   const [cursorX, setCursorX] = useState(0);
   const [cursorY, setCursorY] = useState(0);
 
+  // Particles
+  const particles = useMemo(() => {
+    const particlesCount = 400;
+    const positions = new Float32Array(particlesCount * 3);
+    for (let i = 0; i < particlesCount; i++) {
+      // (x,y,z) (Math.random() - 0.5) * 10 just gives more spread from -5 to 5
+      // for y we're spreading across the sections + the space between the sections
+      positions[i * 3] =  (Math.random() - 0.5) * 10; 
+      positions[i * 3 + 1] = objectDistance * 0.5 - Math.random() * objectDistance * 4;
+      positions[i * 3 + 2] =  (Math.random() - 0.5) * 10;
+    }
+    const particlesGeometry = new THREE.BufferGeometry();
+    particlesGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+
+    const particlesMaterial = new THREE.PointsMaterial({
+      color: '#FFFFFF',
+      sizeAttenuation: true,
+      size: 0.03
+    });
+
+    return new THREE.Points(particlesGeometry, particlesMaterial);
+  }, []);
+
   scene.remove(camera);
   const parallaxGroup = new THREE.Group();
   parallaxGroup.add(camera);
@@ -28,9 +51,9 @@ export default function HomeAnimation() {
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
-      const minScroll = 0; // Minimum valid scroll position
+      const minScroll = 0;
       const maxScroll =
-        document.documentElement.scrollHeight - window.innerHeight; // Maximum valid scroll position
+        document.documentElement.scrollHeight - window.innerHeight;
 
       if (scrollPosition >= minScroll && scrollPosition <= maxScroll) {
         setScrollY(scrollPosition);
@@ -54,15 +77,15 @@ export default function HomeAnimation() {
   useFrame((state, delta) => {
     camera.position.y = (-scrollY / window.innerHeight) * objectDistance;
 
-    // const parallaxX = cursorX;
-    // const parallaxY = -cursorY;
+    const parallaxX = cursorX;
+    const parallaxY = -cursorY;
     // parallaxGroup.position.x +=
     //   (parallaxX - parallaxGroup.position.x) * 5 * delta;
     // parallaxGroup.position.y +=
     //   (parallaxY - parallaxGroup.position.y) * 5 * delta;
 
-    // parallaxGroup.position.x = parallaxX;
-    // parallaxGroup.position.y = parallaxY;
+    parallaxGroup.position.x = parallaxX;
+    parallaxGroup.position.y = parallaxY;
     if (clockRef.current) {
       clockRef.current.rotation.y += delta * 0.25;
     }
@@ -82,6 +105,7 @@ export default function HomeAnimation() {
       <directionalLight position={[1, 2, 3]} intensity={1} />
       <ambientLight intensity={0.25} />
       <primitive object={parallaxGroup} />
+      <primitive object={particles}  position={[-2, introCardOffset, 0]}/>
       <group ref={groupRef}>
         <FlowersOriginal
           ref={clockRef}

@@ -12,13 +12,7 @@ export default function Experience() {
 
       <directionalLight position={[1, 2, 3]} intensity={1.5} />
       <ambientLight intensity={0.5} />
-
-      <mesh rotation-x={-Math.PI * 0.5} position-y={-0.5} scale={10}>
-        <planeGeometry />
-        <meshStandardMaterial color="turquoise" />
-      </mesh>
-      {/* <Plant /> */}
-      <Flowers />
+      <Flowers position-y={-0.5}/>
     </>
   );
 }
