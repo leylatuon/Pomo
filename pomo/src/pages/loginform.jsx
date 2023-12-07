@@ -21,7 +21,6 @@ function LoginForm() {
       if (data.token) {
         localStorage.setItem("accessToken", data.token);
         localStorage.setItem("username", username); 
-        alert("Login successful!");
         navigate('/study');
       } else {
         alert("Login failed: " + data.message);

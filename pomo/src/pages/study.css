@@ -179,3 +179,20 @@ canvas {
   padding-top: 25px;
   height: 75%;
 }
+
+.play-animations-btn {
+  padding: 10px 20px; /* Add padding to increase the button size */
+  font-size: 1rem; /* Adjust font size as necessary */
+  color: rgb(4, 39, 6); /* Text color */
+  background: #2f75ae; /* Background color */
+  border: none; /* Remove border */
+  border-radius: 4px; /* Rounded corners */
+  cursor: pointer; /* Cursor indicates clickable */
+  display: block; /* Display as block to allow width adjustment */
+  width: auto; /* Auto width to fit content */
+  transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.play-animations-btn:hover {
+  background: #c56683; /* Darken the background on hover */
+}

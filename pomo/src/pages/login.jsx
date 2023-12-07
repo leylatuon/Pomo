@@ -22,7 +22,6 @@ const Login = () => {
     .then((data) => {
       if (data.token) {
         localStorage.setItem("accessToken", data.token);
-        alert("Login successful!");
         navigate('/study');
       } else {
         alert("Login failed: " + data.message);

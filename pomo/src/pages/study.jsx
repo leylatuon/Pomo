@@ -125,7 +125,8 @@ const StudyPage = () => {
         </div>
 
         <div class="plant-timer-content">
-          <button onClick={playAllAnimations}>Play Animations</button>
+          <button className="play-animations-btn" onClick={playAllAnimations}>
+               Play Animations</button>
           <Canvas
             dpr={[1, 2]}
             gl={{
