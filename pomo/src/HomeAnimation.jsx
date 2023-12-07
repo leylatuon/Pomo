@@ -24,7 +24,7 @@ export default function HomeAnimation() {
   const [cursorY, setCursorY] = useState(0);
 
   const particles = useMemo(() => {
-    const particlesCount = 400;
+    const particlesCount = 2000;
     const positions = new Float32Array(particlesCount * 3);
     for (let i = 0; i < particlesCount; i++) {
       // (x,y,z) (Math.random() - 0.5) * 10 just gives more spread from -5 to 5
