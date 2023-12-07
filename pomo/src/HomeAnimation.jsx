@@ -9,7 +9,7 @@ import Clock from "./Clock.jsx";
 export default function HomeAnimation() {
   const { scene, camera, gl } = useThree();
   const objectDistance = 4;
-  const introCardOffset = -5.5;
+  const introCardOffset = -5;
   const groupRef = useRef();
   const clockRef = useRef();
   const sproutRef = useRef();
