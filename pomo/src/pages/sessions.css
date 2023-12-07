@@ -1,0 +1,51 @@
+.study-content {
+  display: flex;
+  padding: 40px;
+  height: calc(100vh - 60px);
+}
+
+.tasks-content {
+  width: 50%;
+}
+
+h1 {
+  font-size: 30px;
+  font-weight: 500;
+  margin-bottom: 32px;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+h4 {
+  font-size: 18px;
+  color: var(--light-alt);
+  text-transform: uppercase;
+  font-weight: 400;
+  margin-bottom: 16px;
+}
+
+.session {
+  margin-left: 50px;
+  margin-right: 50px;
+  padding-bottom: 50px;
+}
+
+.todo {
+  position: relative;
+  background-color: var(--dark);
+  padding: 16px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  transition: 0.5s;
+  cursor: pointer;
+  margin-bottom: 16px;
+}
+
+.todo .text {
+  font-size: 20px;
+}
+
+.todo.is-complete .text {
+  text-decoration: line-through;
+}

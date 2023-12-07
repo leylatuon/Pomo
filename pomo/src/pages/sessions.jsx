@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./study.css";
+import "./sessions.css";
 
 const api_base = "http://localhost:3001";
 
@@ -24,7 +24,7 @@ const Sessions = () => {
       <h1>Your Past Sessions</h1>
       <p></p>
 
-      <div className="todos">
+      <div className="session">
         {sessions.length > 0 ? (
           sessions.map((session) => (
             <div className="todo">
