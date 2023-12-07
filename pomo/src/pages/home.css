@@ -12,7 +12,7 @@
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(49, 68, 37, 0.2);
   width: 100%;
-  height: 500px; 
+  height: 500px;
   margin: auto;
 }
 
@@ -35,4 +35,46 @@
   cursor: pointer;
   font-size: 20px;
 }
-    
+
+.webgl-container {
+  position: relative;
+}
+
+.webgl {
+  position: fixed; /* Fixed position to cover the whole screen */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.overlay {
+  margin-top: 20%;
+}
+.section-container {
+  /* display: flex; */
+  align-items: center;
+  min-height: 100vh; /* This ensures each section is at least the height of the viewport */
+  position: relative;
+  font-family: "Cabin", sans-serif;
+  color: #ffeded;
+}
+
+.section-right {
+  padding-left: 50%;
+  padding-right: 20%;
+}
+
+.section-left {
+  padding-left: 20%;
+  padding-right: 50%;
+}
+
+.section-title {
+  font-size: 3vmin;
+  text-transform: uppercase;
+}
+
+section:nth-child(odd) {
+  justify-content: flex-end;
+}
