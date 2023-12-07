@@ -46,7 +46,7 @@ const StudyPage = () => {
       }),
     }).then((res) => res.json());
 
-    // TODO: clear todos
+    deleteAllTodos();
   };
 
   const GetTodos = () => {
@@ -98,6 +98,22 @@ const StudyPage = () => {
 
     setTodos((todos) => todos.filter((todo) => todo._id !== data.result._id));
   };
+
+  const deleteAllTodos = () => {
+    // array1.forEach((element) => console.log(element));
+    todos.forEach((todo) => {
+      deleteTodo(todo._id);
+    });
+  };
+
+  // const deleteAllTodos = async () => {
+  //   const data = await fetch(api_base + "/todo/delete/all", {
+  //     method: "DELETE",
+  //   });
+
+  //   const emptyTodos = [];
+  //   setTodos(emptyTodos);
+  // };
 
   return (
     <div className="study-content">
