@@ -4,7 +4,7 @@ import * as THREE from "three";
 import Fern from "./Fern.jsx";
 import Sprout from "./Sprout.jsx";
 import Leaf from "./Leaf.jsx";
-import Clock from "./Clock.jsx";
+import FlowersOriginal from "./FlowersOriginal.jsx";
 
 export default function HomeAnimation() {
   const { scene, camera, gl } = useThree();
@@ -83,7 +83,11 @@ export default function HomeAnimation() {
       <ambientLight intensity={0.25} />
       <primitive object={parallaxGroup} />
       <group ref={groupRef}>
-        <Sprout ref={clockRef} scale={1} position={[-2, introCardOffset, 0]} />
+        <FlowersOriginal
+          ref={clockRef}
+          scale={1}
+          position={[-2, introCardOffset, 0]}
+        />
         <Sprout
           ref={sproutRef}
           scale={1}

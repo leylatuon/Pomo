@@ -1,56 +1,56 @@
 .login-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: calc(100vh - 60px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 60px);
 }
 
 .login-container {
-    background-color: rgb(134, 184, 130);
-    padding: 40px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px #0000001a;
-    text-align: center;
-    width: 50%;
+  background-color: rgb(134, 184, 130);
+  padding: 40px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px #0000001a;
+  text-align: center;
+  width: 50%;
 }
 
 h1 {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .input-group {
-    margin-bottom: 15px;
+  margin-bottom: 15px;
 }
 
 .input-group input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #dddddd;
-    border-radius: 5px;
-    margin-top: 5px;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #dddddd;
+  border-radius: 5px;
+  margin-top: 5px;
 }
 
 .input-group button {
-    width: 100%;
-    height: fit-content;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: #3b653d;
-    font-size: 15px;
-    color: white;
-    cursor: pointer;
+  width: 100%;
+  height: fit-content;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #3b653d;
+  font-size: 15px;
+  color: white;
+  cursor: pointer;
 }
 
 .input-group button:hover {
-    background-color:  #5d9b60;
+  background-color: #5d9b60;
 }
 
 .login-container a {
-    color: #000000;
-    text-decoration: none;
+  color: #000000;
+  text-decoration: none;
 }
 
 .login-container a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
